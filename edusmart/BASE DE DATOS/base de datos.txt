@@ -1,0 +1,498 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 23-11-2025 a las 04:35:14
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `edusmart`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `attendance`
+--
+
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `student_dni` varchar(20) NOT NULL,
+  `status` enum('present','absent') NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `attendance`
+--
+
+INSERT INTO `attendance` (`id`, `date`, `student_dni`, `status`, `teacher_id`, `created_at`) VALUES
+(1, '2025-10-28', '75842196', 'present', 1, '2025-10-29 00:51:36'),
+(2, '2025-10-28', '75842197', 'present', 1, '2025-10-29 00:51:36'),
+(3, '2025-10-28', '75842198', 'present', 1, '2025-10-29 00:51:36'),
+(4, '2025-10-28', '75842199', 'present', 1, '2025-10-29 00:51:36'),
+(5, '2025-10-28', '75842200', 'present', 1, '2025-10-29 00:51:36'),
+(6, '2025-10-28', '75842201', 'present', 1, '2025-10-29 00:51:36'),
+(7, '2025-10-28', '75842202', 'present', 1, '2025-10-29 00:51:36'),
+(8, '2025-10-28', '75842203', 'present', 1, '2025-10-29 00:51:36'),
+(9, '2025-10-28', '75842204', 'present', 1, '2025-10-29 00:51:36'),
+(10, '2025-10-28', '75842205', 'present', 1, '2025-10-29 00:51:36'),
+(11, '2025-10-28', '75842196', 'present', 1, '2025-10-29 01:10:10'),
+(12, '2025-10-28', '75842197', 'present', 1, '2025-10-29 01:10:10'),
+(13, '2025-10-28', '75842198', 'present', 1, '2025-10-29 01:10:10'),
+(14, '2025-10-28', '75842199', 'present', 1, '2025-10-29 01:10:10'),
+(15, '2025-10-28', '75842200', 'present', 1, '2025-10-29 01:10:10'),
+(16, '2025-10-28', '75842201', 'present', 1, '2025-10-29 01:10:10'),
+(17, '2025-10-28', '75842202', 'present', 1, '2025-10-29 01:10:10'),
+(18, '2025-10-28', '75842203', 'present', 1, '2025-10-29 01:10:10'),
+(19, '2025-10-28', '75842204', 'present', 1, '2025-10-29 01:10:10'),
+(20, '2025-10-28', '75842205', 'present', 1, '2025-10-29 01:10:10'),
+(29, '2025-10-29', '75842196', 'present', 1, '2025-10-29 04:23:10'),
+(30, '2025-10-29', '75842197', 'present', 1, '2025-10-29 04:23:10'),
+(31, '2025-10-29', '75842198', 'present', 1, '2025-10-29 04:23:10'),
+(32, '2025-10-29', '75842199', 'present', 1, '2025-10-29 04:23:10'),
+(33, '2025-10-29', '75842200', 'present', 1, '2025-10-29 04:23:10'),
+(34, '2025-10-29', '75842201', 'present', 1, '2025-10-29 04:23:10'),
+(35, '2025-10-29', '75842202', 'present', 1, '2025-10-29 04:23:10'),
+(36, '2025-10-29', '75842203', 'present', 1, '2025-10-29 04:23:10'),
+(53, '2025-11-22', '75842196', 'present', 1, '2025-11-22 21:10:34'),
+(54, '2025-11-22', '75842197', 'present', 1, '2025-11-22 21:10:34'),
+(55, '2025-11-22', '75842198', 'present', 1, '2025-11-22 21:10:34'),
+(56, '2025-11-22', '75842199', 'present', 1, '2025-11-22 21:10:34'),
+(57, '2025-11-22', '75842200', 'present', 1, '2025-11-22 21:10:34'),
+(58, '2025-11-22', '75842201', 'present', 1, '2025-11-22 21:10:34'),
+(59, '2025-11-22', '75842202', 'present', 1, '2025-11-22 21:10:34'),
+(60, '2025-11-22', '75842203', 'present', 1, '2025-11-22 21:10:34');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `courses`
+--
+
+CREATE TABLE `courses` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`) VALUES
+(8, 'Arte y Cultura'),
+(3, 'Ciencia y Tecnología'),
+(2, 'Comunicación'),
+(6, 'Educación Cívica y Ciudadanía'),
+(7, 'Educación Física'),
+(5, 'Historia, Geografía y Economía'),
+(9, 'Informática'),
+(4, 'Inglés'),
+(1, 'Matemática'),
+(10, 'Tutoría y Orientación Educativa');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `grades`
+--
+
+CREATE TABLE `grades` (
+  `id` int(11) NOT NULL,
+  `student_dni` varchar(20) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `grade` decimal(4,2) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `comments` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `grades`
+--
+
+INSERT INTO `grades` (`id`, `student_dni`, `course_id`, `grade`, `teacher_id`, `comments`, `created_at`) VALUES
+(1, '75842196', 8, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(2, '75842196', 3, 17.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(3, '75842196', 2, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(4, '75842196', 6, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(5, '75842196', 7, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(6, '75842196', 5, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(7, '75842196', 9, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(8, '75842196', 4, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(9, '75842196', 1, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(10, '75842196', 10, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(11, '75842197', 8, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(12, '75842197', 3, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(13, '75842197', 2, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(14, '75842197', 6, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(15, '75842197', 7, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(16, '75842197', 5, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(17, '75842197', 9, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(18, '75842197', 4, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(19, '75842197', 1, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(20, '75842197', 10, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(21, '75842198', 8, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(22, '75842198', 3, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(23, '75842198', 2, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(24, '75842198', 6, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(25, '75842198', 7, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(26, '75842198', 5, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(27, '75842198', 9, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(28, '75842198', 4, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(29, '75842198', 1, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(30, '75842198', 10, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(31, '75842199', 8, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(32, '75842199', 3, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(33, '75842199', 2, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(34, '75842199', 6, 17.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(35, '75842199', 7, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(36, '75842199', 5, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(37, '75842199', 9, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(38, '75842199', 4, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(39, '75842199', 1, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(40, '75842199', 10, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(41, '75842200', 8, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(42, '75842200', 3, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(43, '75842200', 2, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(44, '75842200', 6, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(45, '75842200', 7, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(46, '75842200', 5, 17.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(47, '75842200', 9, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(48, '75842200', 4, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(49, '75842200', 1, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(50, '75842200', 10, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(51, '75842201', 8, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(52, '75842201', 3, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(53, '75842201', 2, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(54, '75842201', 6, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(55, '75842201', 7, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(56, '75842201', 5, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(57, '75842201', 9, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(58, '75842201', 4, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(59, '75842201', 1, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(60, '75842201', 10, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(61, '75842202', 8, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(62, '75842202', 3, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(63, '75842202', 2, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(64, '75842202', 6, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(65, '75842202', 7, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(66, '75842202', 5, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(67, '75842202', 9, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(68, '75842202', 4, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(69, '75842202', 1, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(70, '75842202', 10, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(71, '75842203', 8, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(72, '75842203', 3, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(73, '75842203', 2, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(74, '75842203', 6, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(75, '75842203', 7, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(76, '75842203', 5, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(77, '75842203', 9, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(78, '75842203', 4, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(79, '75842203', 1, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(80, '75842203', 10, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(81, '75842204', 8, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(82, '75842204', 3, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(83, '75842204', 2, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(84, '75842204', 6, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(85, '75842204', 7, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(86, '75842204', 5, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(87, '75842204', 9, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(88, '75842204', 4, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(89, '75842204', 1, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(90, '75842204', 10, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(91, '75842205', 8, 17.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(92, '75842205', 3, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(93, '75842205', 2, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(94, '75842205', 6, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(95, '75842205', 7, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(96, '75842205', 5, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(97, '75842205', 9, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(98, '75842205', 4, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(99, '75842205', 1, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(100, '75842205', 10, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 00:51:36'),
+(101, '75842196', 8, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(102, '75842196', 3, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(103, '75842196', 2, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(104, '75842196', 6, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(105, '75842196', 7, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(106, '75842196', 5, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(107, '75842196', 9, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(108, '75842196', 4, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(109, '75842196', 1, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(110, '75842196', 10, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(111, '75842197', 8, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(112, '75842197', 3, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(113, '75842197', 2, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(114, '75842197', 6, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(115, '75842197', 7, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(116, '75842197', 5, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(117, '75842197', 9, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(118, '75842197', 4, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(119, '75842197', 1, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(120, '75842197', 10, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(121, '75842198', 8, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(122, '75842198', 3, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(123, '75842198', 2, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(124, '75842198', 6, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(125, '75842198', 7, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(126, '75842198', 5, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(127, '75842198', 9, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(128, '75842198', 4, 17.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(129, '75842198', 1, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(130, '75842198', 10, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(131, '75842199', 8, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(132, '75842199', 3, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(133, '75842199', 2, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(134, '75842199', 6, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(135, '75842199', 7, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(136, '75842199', 5, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(137, '75842199', 9, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(138, '75842199', 4, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(139, '75842199', 1, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(140, '75842199', 10, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(141, '75842200', 8, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(142, '75842200', 3, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(143, '75842200', 2, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(144, '75842200', 6, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(145, '75842200', 7, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(146, '75842200', 5, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(147, '75842200', 9, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(148, '75842200', 4, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(149, '75842200', 1, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(150, '75842200', 10, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(151, '75842201', 8, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(152, '75842201', 3, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(153, '75842201', 2, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(154, '75842201', 6, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(155, '75842201', 7, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(156, '75842201', 5, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(157, '75842201', 9, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(158, '75842201', 4, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(159, '75842201', 1, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(160, '75842201', 10, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(161, '75842202', 8, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(162, '75842202', 3, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(163, '75842202', 2, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(164, '75842202', 6, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(165, '75842202', 7, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(166, '75842202', 5, 18.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(167, '75842202', 9, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(168, '75842202', 4, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(169, '75842202', 1, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(170, '75842202', 10, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(171, '75842203', 8, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(172, '75842203', 3, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(173, '75842203', 2, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(174, '75842203', 6, 20.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(175, '75842203', 7, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(176, '75842203', 5, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(177, '75842203', 9, 19.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(178, '75842203', 4, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(179, '75842203', 1, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(180, '75842203', 10, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(181, '75842204', 8, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(182, '75842204', 3, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(183, '75842204', 2, 14.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(184, '75842204', 6, 13.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(185, '75842204', 7, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(186, '75842204', 5, 18.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(187, '75842204', 9, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(188, '75842204', 4, 12.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(189, '75842204', 1, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(190, '75842204', 10, 12.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(191, '75842205', 8, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(192, '75842205', 3, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(193, '75842205', 2, 14.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(194, '75842205', 6, 16.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(195, '75842205', 7, 17.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(196, '75842205', 5, 13.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(197, '75842205', 9, 15.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(198, '75842205', 4, 16.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(199, '75842205', 1, 19.50, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(200, '75842205', 10, 15.00, 1, 'Nota inicial generada por instalación. Buen desempeño, continuar practicando.', '2025-10-29 01:10:10'),
+(201, '75842196', 8, 20.00, 1, 'buen trabajo', '2025-10-29 04:20:53'),
+(202, '75842196', 3, 20.00, 1, 'very good', '2025-10-29 04:21:03'),
+(203, '75842196', 2, 0.00, 1, 'puedes mejorar', '2025-10-29 04:21:17'),
+(204, '75842196', 6, 15.00, 1, 'conoces regular', '2025-10-29 04:21:32'),
+(205, '75842196', 7, 20.00, 1, 'que buen atleta te pareces a Italo', '2025-10-29 04:21:47'),
+(206, '75842196', 5, 15.00, 1, 'le pones mas empeño', '2025-10-29 04:22:07'),
+(207, '75842196', 9, 20.00, 1, 'ya pareces hacker', '2025-10-29 04:22:17'),
+(208, '75842196', 4, 15.00, 1, 'very good student', '2025-10-29 04:22:36'),
+(209, '75842196', 1, 20.00, 1, 'que crack', '2025-10-29 04:22:44'),
+(210, '75842196', 10, 10.00, 1, 'que paso aqui?', '2025-10-29 04:22:54'),
+(211, '75842196', 9, 15.00, 1, NULL, '2025-11-22 21:09:31');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `students`
+--
+
+CREATE TABLE `students` (
+  `dni` varchar(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `grade_level` varchar(100) NOT NULL,
+  `extra_info` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `students`
+--
+
+INSERT INTO `students` (`dni`, `name`, `grade_level`, `extra_info`) VALUES
+('75842196', 'Juan Pérez García', '5to Secundaria', NULL),
+('75842197', 'María López Quispe', '5to Secundaria', NULL),
+('75842198', 'Carlos Rodríguez Soto', '5to Secundaria', NULL),
+('75842199', 'Ana Torres Mendoza', '5to Secundaria', NULL),
+('75842200', 'Pedro Sánchez Vargas', '5to Secundaria', NULL),
+('75842201', 'Lucía Ramírez Cruz', '5to Secundaria', NULL),
+('75842202', 'Diego Flores Huamán', '5to Secundaria', NULL),
+('75842203', 'Sofía Castro Díaz', '5to Secundaria', NULL),
+('75842204', 'Andrés Morales Ríos', '5to Secundaria', NULL),
+('75842205', 'Valeria Núñez Paredes', '5to Secundaria', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `dni` varchar(20) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `role` enum('admin','teacher','student','parent') NOT NULL,
+  `linked_student_dni` varchar(20) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `dni`, `email`, `password_hash`, `role`, `linked_student_dni`, `name`, `created_at`) VALUES
+(1, NULL, 'admin@adminedusmart.com', '$2y$10$l36Sehhkb8ZodYEg0Cd9rOwcmjcGlPUY5MqbXpLU8K04zdSmamlfO', 'admin', NULL, 'Administrador EduSmart', '2025-10-29 00:51:35'),
+(2, '75842196', '75842196@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Juan Pérez García', '2025-10-29 00:51:36'),
+(3, NULL, '75842196@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842196', 'Apoderado de Juan Pérez García', '2025-10-29 00:51:36'),
+(4, '75842197', '75842197@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'María López Quispe', '2025-10-29 00:51:36'),
+(5, NULL, '75842197@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842197', 'Apoderado de María López Quispe', '2025-10-29 00:51:36'),
+(6, '75842198', '75842198@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Carlos Rodríguez Soto', '2025-10-29 00:51:36'),
+(7, NULL, '75842198@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842198', 'Apoderado de Carlos Rodríguez Soto', '2025-10-29 00:51:36'),
+(8, '75842199', '75842199@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Ana Torres Mendoza', '2025-10-29 00:51:36'),
+(9, NULL, '75842199@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842199', 'Apoderado de Ana Torres Mendoza', '2025-10-29 00:51:36'),
+(10, '75842200', '75842200@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Pedro Sánchez Vargas', '2025-10-29 00:51:36'),
+(11, NULL, '75842200@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842200', 'Apoderado de Pedro Sánchez Vargas', '2025-10-29 00:51:36'),
+(12, '75842201', '75842201@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Lucía Ramírez Cruz', '2025-10-29 00:51:36'),
+(13, NULL, '75842201@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842201', 'Apoderado de Lucía Ramírez Cruz', '2025-10-29 00:51:36'),
+(14, '75842202', '75842202@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Diego Flores Huamán', '2025-10-29 00:51:36'),
+(15, NULL, '75842202@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842202', 'Apoderado de Diego Flores Huamán', '2025-10-29 00:51:36'),
+(16, '75842203', '75842203@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Sofía Castro Díaz', '2025-10-29 00:51:36'),
+(17, NULL, '75842203@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842203', 'Apoderado de Sofía Castro Díaz', '2025-10-29 00:51:36'),
+(18, '75842204', '75842204@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Andrés Morales Ríos', '2025-10-29 00:51:36'),
+(19, NULL, '75842204@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842204', 'Apoderado de Andrés Morales Ríos', '2025-10-29 00:51:36'),
+(20, '75842205', '75842205@edusmart.com', '$2y$10$xlwxuuaLOmGNIZJWEbUCV.vV5grhFhqeaR5Rgd5HINqmgsPsA7/wC', 'student', NULL, 'Valeria Núñez Paredes', '2025-10-29 00:51:36'),
+(21, NULL, '75842205@apoderadosmart.com', '$2y$10$dRM2a20./wn8PXXOUtOZpuwCIPi0FqrzZ2CLOd/mQsOBciLZbXISC', 'parent', '75842205', 'Apoderado de Valeria Núñez Paredes', '2025-10-29 00:51:36');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `attendance`
+--
+ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `teacher_id` (`teacher_id`),
+  ADD KEY `date` (`date`),
+  ADD KEY `student_dni` (`student_dni`);
+
+--
+-- Indices de la tabla `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indices de la tabla `grades`
+--
+ALTER TABLE `grades`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `student_dni` (`student_dni`),
+  ADD KEY `course_id` (`course_id`),
+  ADD KEY `teacher_id` (`teacher_id`);
+
+--
+-- Indices de la tabla `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`dni`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `dni` (`dni`),
+  ADD KEY `linked_student_dni` (`linked_student_dni`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT de la tabla `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `grades`
+--
+ALTER TABLE `grades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `attendance`
+--
+ALTER TABLE `attendance`
+  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`student_dni`) REFERENCES `students` (`dni`) ON DELETE CASCADE,
+  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `grades`
+--
+ALTER TABLE `grades`
+  ADD CONSTRAINT `grades_ibfk_1` FOREIGN KEY (`student_dni`) REFERENCES `students` (`dni`) ON DELETE CASCADE,
+  ADD CONSTRAINT `grades_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `grades_ibfk_3` FOREIGN KEY (`teacher_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+COMMIT;
